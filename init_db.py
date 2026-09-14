@@ -1,4 +1,5 @@
 """初始化数据库并写入演示数据（全部虚构）。运行: python init_db.py"""
+#yoyo
 import sqlite3
 from pathlib import Path
 
