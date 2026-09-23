@@ -70,3 +70,5 @@ campusfix-starter/
 ## 小组 Sprint 1 计划
 
 - [ ] 新增工单状态筛选功能（Issue #1）
+  - [ ] 下拉筛选生效
+  - [ ] 筛选后 URL 可分享（可选）
