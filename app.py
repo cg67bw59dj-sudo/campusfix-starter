@@ -37,6 +37,12 @@ def close_db(exc):
         db.close()
 
 
+def validate_ticket(title, room):
+    if len(title) > 20:
+        return "标题不能超过20个字符"
+    return None
+
+
 @app.route("/health")
 def health():
     """健康检查接口：Docker/CI/部署验证用"""
@@ -69,6 +75,9 @@ def create_ticket():
         title = request.form.get("title", "").strip()
         room = request.form.get("room", "").strip()
         description = request.form.get("description", "").strip()
+        error = validate_ticket(title, room)
+        if error:
+            return error, 400
         db = get_db()
         db.execute(
             "INSERT INTO tickets (title, room, description) VALUES (?, ?, ?)",
