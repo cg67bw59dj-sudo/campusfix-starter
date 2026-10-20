@@ -1,0 +1,17 @@
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.git/
+.gitignore
+instance/
+*.db
+*.sqlite3
+.env
+.env.example
+campus-fix/
+campusfix-cg67bw59dj-sudo/
+Dockerfile
+.dockerignore
