@@ -13,5 +13,8 @@ instance/
 .env.example
 campus-fix/
 campusfix-cg67bw59dj-sudo/
+tests/
+.DS_Store
 Dockerfile
 .dockerignore
+docker-compose.yml
