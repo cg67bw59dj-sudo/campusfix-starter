@@ -14,6 +14,9 @@ DATABASE = Path(os.environ.get("DATABASE_PATH", INSTANCE_DIR / "campusfix.db"))
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "dev-only-secret")
 
+# 首页标题（期末考查：标题带上本人学号）
+APP_TITLE = "CampusFix-20252096"
+
 # 基本日志配置：输出到 stdout，格式含时间与级别
 logging.basicConfig(
     level=logging.INFO,
@@ -55,7 +58,7 @@ def index():
     tickets = db.execute(
         "SELECT id, title, room, status, created_at FROM tickets ORDER BY created_at DESC"
     ).fetchall()
-    return render_template("index.html", tickets=tickets)
+    return render_template("index.html", tickets=tickets, title=APP_TITLE)
 
 
 @app.route("/tickets/<int:ticket_id>")
