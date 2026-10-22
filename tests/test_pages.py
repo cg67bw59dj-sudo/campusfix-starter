@@ -8,6 +8,13 @@ def test_index(client):
     assert "CampusFix" in resp.data.decode()
 
 
+def test_index_title_contains_student_id(client):
+    """期末考查：首页标题必须带上学号 CampusFix-20252096。"""
+    resp = client.get("/")
+    assert resp.status_code == 200
+    assert "CampusFix-20252096" in resp.data.decode()
+
+
 def test_detail(client):
     """先创建一个工单，再访问它的详情页。
 
